@@ -14,8 +14,8 @@ public class Main {
 		dataExchange = new DataExchange();
 		follower = new FollowLine(dataExchange);
 		avoider = new AvoidObstacles(dataExchange);
-
 		avoider.start();
+		
 		follower.start();
 
 		while(!Button.ESCAPE.isDown()) {
