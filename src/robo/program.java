@@ -19,8 +19,6 @@ public class program {
 		lcheck.start();
 		scheck.start();
 		
-		boolean yes = true;
-		
 		while(Button.ESCAPE.isUp()) {
 // going to appropriate direction
 is.setGoesLeft(true);

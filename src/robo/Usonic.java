@@ -2,10 +2,8 @@ package robo;
 
 import lejos.hardware.Button;
 import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 import lejos.robotics.SampleProvider;
-import lejos.robotics.RangeFinder;
 
 public class Usonic implements Runnable{
 	

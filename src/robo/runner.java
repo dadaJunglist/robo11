@@ -1,13 +1,8 @@
 package robo;
 
-import lejos.hardware.Button;
-import lejos.hardware.Sound;
 import lejos.hardware.motor.*;
-import lejos.hardware.port.*;
-import lejos.utility.Delay;
 import lejos.hardware.port.MotorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.robotics.SampleProvider;
+
 
 public class runner {
 	

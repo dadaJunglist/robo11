@@ -1,17 +1,13 @@
 package robo;
 
 import lejos.hardware.Button;
-import lejos.robotics.Color;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.SampleProvider;
 
 public class Light implements Runnable{
-<<<<<<< Updated upstream
-=======
-
+	
 	protected status is;
->>>>>>> Stashed changes
 	
 	public Light(status is) {
 		this.is = is;
