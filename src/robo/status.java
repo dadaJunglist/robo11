@@ -1,14 +1,5 @@
 package robo;
 
-import lejos.hardware.port.Port;
-import lejos.hardware.sensor.EV3UltrasonicSensor;
-import lejos.robotics.RangeFinder;
-import lejos.robotics.SampleProvider;
-import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.robotics.Color;
-import lejos.robotics.ColorDetector;
-import lejos.robotics.ColorIdentifier;
-
 public class status {
 
 	public status()
@@ -16,12 +7,27 @@ public class status {
 		
 	}
 	
-	public boolean isONline;
-	public boolean outFromline;
+	public boolean onLine;
 	public boolean hasNOobstacle;
 	public boolean goesLeft;
-	public boolean goesRight;
 	
-	
+	public boolean isOnLine() {
+		return onLine;
+	}
+	public void setOnLine(boolean onLine) {
+		this.onLine = onLine;
+	}
+	public boolean isHasNOobstacle() {
+		return hasNOobstacle;
+	}
+	public void setHasNOobstacle(boolean hasNOobstacle) {
+		this.hasNOobstacle = hasNOobstacle;
+	}
+	public boolean GoesLeft() {
+		return goesLeft;
+	}
+	public void setGoesLeft(boolean goesLeft) {
+		this.goesLeft = goesLeft;
+	}
 
 }

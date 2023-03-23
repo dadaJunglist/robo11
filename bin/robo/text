@@ -55,5 +55,8 @@ in case of self configuring there should be extra routine after line is not seen
 5.3 thread for checking ultrasoinc sensor that thru object affects thread of running wheels and sets integer counter to check how many times obstacle is reached.
 
 left wheel - port a, right wheel - port b. light sensor - port 2, ultrasoinc - port 1.
+<<<<<<< Updated upstream
 
 123123
+=======
+>>>>>>> Stashed changes

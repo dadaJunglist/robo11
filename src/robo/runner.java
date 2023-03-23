@@ -5,6 +5,9 @@ import lejos.hardware.Sound;
 import lejos.hardware.motor.*;
 import lejos.hardware.port.*;
 import lejos.utility.Delay;
+import lejos.hardware.port.MotorPort;
+import lejos.hardware.sensor.EV3ColorSensor;
+import lejos.robotics.SampleProvider;
 
 public class runner {
 	
@@ -13,51 +16,39 @@ public class runner {
 		
 	}
 	
-	
-    private EV3LargeRegulatedMotor motorA = new EV3LargeRegulatedMotor(MotorPort.A);
-    private EV3LargeRegulatedMotor motorD = new EV3LargeRegulatedMotor(MotorPort.D);
+    private EV3LargeRegulatedMotor leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
+    private EV3LargeRegulatedMotor rightWheel = new EV3LargeRegulatedMotor(MotorPort.D);
+	private static final int SPEED_MAX = 500;
+	private static final int SPEED = 290;
+	private static final int SPEED_TURN = 215;
+
     
-    public void goForward()
+    public void goForward(boolean goesleft)
     {
-        motorA.setSpeed(500);
-        motorA.forward();    // starts rotation.
-        motorD.setSpeed(500);
-        motorD.forward();    // starts rotation.
-        Delay.msDelay(3000);
-//        motorA.close();
-//        motorB.close();
+    	leftWheel.forward();
+		rightWheel.forward();
+		if(goesleft)
+		{
+			leftWheel.setSpeed(SPEED_MAX);
+			rightWheel.setSpeed(SPEED);
+		}
+		else
+		{
+			leftWheel.setSpeed(SPEED);
+			rightWheel.setSpeed(SPEED_MAX);
+		}
     }
     
     public void goLeft()
     {
-        motorA.setSpeed(300);
-        motorA.forward();    // starts rotation.
-        motorD.setSpeed(185);
-        motorD.forward();    // starts rotation.
-        Delay.msDelay(3000);
-//        motorA.close();
-//        motorB.close();
+    	leftWheel.setSpeed(SPEED_TURN);
+		rightWheel.setSpeed(SPEED_MAX);
     }
     
     public void goRight()
     {
-        motorA.setSpeed(185);
-        motorA.forward();    // starts rotation.
-        motorD.setSpeed(300);
-        motorD.forward();    // starts rotation.
-        
-//        motorA.close();
-//        motorB.close();
-    }
-
-    public void returnLeft()
-    {
-    	
-    }
-    
-    public void returnRight()
-    {
-    	
+    	leftWheel.setSpeed(SPEED);
+		rightWheel.setSpeed(SPEED_TURN);
     }
     
     public void avoidObstacle()
