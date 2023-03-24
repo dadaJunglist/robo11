@@ -1,8 +1,5 @@
 package robo;
 
-import lejos.hardware.motor.*;
-import lejos.hardware.port.MotorPort;
-
 
 public class runner {
 	
@@ -12,12 +9,15 @@ public class runner {
 		this.is = is;
 	}
 	
-    private EV3LargeRegulatedMotor leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
-    private EV3LargeRegulatedMotor rightWheel = new EV3LargeRegulatedMotor(MotorPort.D);
-	private static final int SPEED_MAX = 500;
-	private static final int SPEED = 290;
-	private static final int SPEED_TURN = 215;
 
+	Wheel leftWheel = new Wheel(true);
+	Wheel rightWheel = new Wheel(false);
+	
+	Thread left = new Thread(leftWheel);
+	Thread rght = new Thread(rightWheel);
+	
+	
+	
     
     public void goForward()
     {
