@@ -6,9 +6,10 @@ import lejos.hardware.port.MotorPort;
 
 public class runner {
 	
-	public runner()
-	{
-		
+	protected status is;
+	
+	public runner(status is) {
+		this.is = is;
 	}
 	
     private EV3LargeRegulatedMotor leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
@@ -46,12 +47,22 @@ public class runner {
 		rightWheel.setSpeed(SPEED_TURN);
     }
     
-    public void avoidObstacle()
+    public void avoidObstacleLeft()
+    {
+    	
+    }
+    
+    public void avoidObstacleRight()
     {
     	
     }
     
     public void special()
+    {
+    	
+    }
+    
+    public void sideCheck()
     {
     	
     }

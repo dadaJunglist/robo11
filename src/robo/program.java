@@ -7,9 +7,9 @@ public class program {
 	public static void main(String[] args) {
 
 		
-		runner robo = new runner();
-		status is = new status();
 		
+		status is = new status();
+		runner robo = new runner(is);
 		Light light = new Light(is);
 		Usonic usonic = new Usonic(is);
 		
