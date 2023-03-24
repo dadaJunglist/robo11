@@ -33,6 +33,15 @@ public class Light implements Runnable{
 			else {
 				is.setOnLine(false);
 			}
+			
+			if (checkColor > 0.3f)
+			{
+				is.setOffLine(true);
+			}
+			else
+			{
+				is.setOffLine(false);
+			}
 						
 		}
 	}

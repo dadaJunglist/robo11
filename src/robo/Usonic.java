@@ -24,15 +24,17 @@ public class Usonic implements Runnable{
 	    sample = new float[distance.sampleSize()];
 	
 		while(Button.ESCAPE.isUp()) {
+			
 			distance.fetchSample(sample, 0);
 			float result = sample[0] * 100;
 			System.out.println(result);
-//			if (true) { 
-//				is.setHasNOobstacle(true);
-//			}
-//			else {
-//				is.setHasNOobstacle(false);
-//			}
+			
+			if (result > 13) { 
+				is.setHasNOobstacle(true);
+			}
+			else {
+				is.setHasNOobstacle(false);
+			}
 		}
 	}
 

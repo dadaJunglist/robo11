@@ -19,29 +19,38 @@ public class program {
 		lcheck.start();
 		scheck.start();
 		
-		while(Button.ESCAPE.isUp()) {
-// going to appropriate direction
-is.setGoesLeft(true);
-			if(is.GoesLeft())
+		if(is.GoesLeft()) {
+			while(Button.ESCAPE.isUp())
 			{
 				if(is.isOnLine()) 
 				{
-					robo.goForward(is.GoesLeft());
+					robo.goRightWeak();
 				}
-				else 
+				else if(is.isOffLine())
 				{
 					robo.goLeft();
 				}
+				else
+				{
+					robo.goForward();
+				}
 			}
-			else
+		}
+		else
+			{
+			while(Button.ESCAPE.isUp())
 			{
 				if(is.isOnLine()) 
 				{
-					robo.goForward(is.GoesLeft());
+					robo.goLeftWeak();
 				}
-				else 
+				else if(is.offLine)
 				{
 					robo.goRight();
+				}
+				else
+				{
+					robo.goForward();
 				}
 			}
 		

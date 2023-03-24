@@ -19,32 +19,29 @@ public class runner {
 	private static final int SPEED_TURN = 215;
 
     
-    public void goForward(boolean goesleft)
+    public void goForward()
     {
-    	leftWheel.forward();
-		rightWheel.forward();
-		if(goesleft)
-		{
-			leftWheel.setSpeed(SPEED_MAX);
-			rightWheel.setSpeed(SPEED);
-		}
-		else
-		{
-			leftWheel.setSpeed(SPEED);
-			rightWheel.setSpeed(SPEED_MAX);
-		}
+    	
     }
     
     public void goLeft()
     {
-    	leftWheel.setSpeed(SPEED_TURN);
-		rightWheel.setSpeed(SPEED_MAX);
+    	
     }
     
     public void goRight()
     {
-    	leftWheel.setSpeed(SPEED);
-		rightWheel.setSpeed(SPEED_TURN);
+    	
+    }
+    
+    public void goLeftWeak()
+    {
+    	
+    }
+    
+    public void goRightWeak()
+    {
+    	
     }
     
     public void avoidObstacleLeft()
