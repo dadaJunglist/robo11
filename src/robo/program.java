@@ -4,10 +4,11 @@ import lejos.hardware.Button;
 
 public class program {
 
+	public static int counter = 1;
+	
 	public static void main(String[] args) {
 
-		
-		
+				
 		status is = new status();
 		runner robo = new runner(is);
 		Light light = new Light(is);
