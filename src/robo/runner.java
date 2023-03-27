@@ -1,7 +1,7 @@
 package robo;
 
 
-public class runner {
+public class runner implements Runnable {
 	
 	protected status is;
 	
@@ -14,9 +14,7 @@ public class runner {
 	Wheel rightWheel = new Wheel(false);
 	
 	Thread left = new Thread(leftWheel);
-	Thread rght = new Thread(rightWheel);
-	
-	
+	Thread right = new Thread(rightWheel);
 	
     
     public void goForward()
@@ -63,4 +61,12 @@ public class runner {
     {
     	
     }
+
+	@Override
+	public void run() {
+		
+		left.start();
+		right.start();
+		
+	}
 }
