@@ -100,5 +100,3 @@ public class FollowLine extends Thread{
 
 	}
 }
-
-
