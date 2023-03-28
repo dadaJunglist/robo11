@@ -21,7 +21,7 @@ public class AvoidObstacles extends Thread{
 
 		this.dataExchange = dataExchange;
 		usSensor = new EV3UltrasonicSensor(SensorPort.S1);
-		SAVE_DISTANCE = 25;
+		SAVE_DISTANCE = 20;
 		usDistance = usSensor.getDistanceMode();
 		sample = new float[usDistance.sampleSize()];
 

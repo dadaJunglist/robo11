@@ -18,8 +18,8 @@ public class FollowLine extends Thread{
 	private static EV3LargeRegulatedMotor leftWheel;
 	private static EV3LargeRegulatedMotor rightWheel;
 
-	private static final int SPEED_MAX = 300;
-	private static final int SPEED = 185;
+	private static final int SPEED_MAX = 200;
+	private static final int SPEED = SPEED_MAX * (3/5);
 
 	public FollowLine(DataExchange dataExchange) {
 
@@ -48,48 +48,78 @@ public class FollowLine extends Thread{
 			if(dataExchange.getCommand() == 1) {
 
 				try {
-					Thread.sleep(10);
+					Thread.sleep(15);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				// Checking if the color sensor is following the black track
-				if (checkColor < 0.1f) {  
+	            if (checkColor < 0.1f) {
+	                leftWheel.setSpeed(SPEED);
+	                rightWheel.setSpeed(SPEED_MAX);
+	                leftWheel.backward();
+	                rightWheel.forward();
 
-					leftWheel.setSpeed(SPEED);
-					rightWheel.setSpeed(SPEED_MAX);
+	            } else if(checkColor > 0.1f && checkColor < 0.3f) {
+	                leftWheel.setSpeed(SPEED_MAX);
+	                rightWheel.setSpeed(SPEED_MAX);
+	                leftWheel.forward();
+	                rightWheel.forward();
 
+	            }else {
+	            	
+	                leftWheel.setSpeed(SPEED_MAX);
+	                rightWheel.setSpeed(SPEED);
+	                leftWheel.forward();
+	                rightWheel.backward();
 
-				} else {
+	            	
+	            }
 
-					leftWheel.setSpeed(SPEED_MAX);                                                                                  
-					rightWheel.setSpeed(SPEED);
-
-				}
-
-
-				leftWheel.forward();
-				rightWheel.forward();
-
-				// Moving the robot forward                                                                                
+	            // Moving the robot forward
+	            rightWheel.forward();
+	            leftWheel.forward();                                                                       
 
 			}else {
+				
+                
+    				leftWheel.stop();
+    				rightWheel.stop();
+//      				leftWheel.setSpeed(100);
+//       				rightWheel.setSpeed(100);
+    				leftWheel.rotate(90);
+    				rightWheel.rotate(-90);
+    				
+    				
+       				leftWheel.forward();
+       				rightWheel.forward();
+       				
+       				try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+       				
+    				leftWheel.rotate(-90);
+    				rightWheel.rotate(90);
+    				
+    				
+       				leftWheel.forward();
+       				rightWheel.forward();
+       				
+       				
+       				leftWheel.stop();
+       				leftWheel.stop();
+                    
+                }
+                
+                dataExchange.setCommand(1);
 
-				leftWheel.stop();
-				rightWheel.stop();
+//				while (leftWheel.isMoving() && rightWheel.isMoving()) {
+//					Thread.yield();
+//				}
 
-
-				while (leftWheel.isMoving() && rightWheel.isMoving()) {
-					Thread.yield();
-				}
-
-			}
-
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 
 		}
 

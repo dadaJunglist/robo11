@@ -32,34 +32,34 @@ public class MoveForward extends Thread {
 
 //				Drive circle
 //
-//				leftWheel.setSpeed(300);
-//				rightWheel.setSpeed(128);
-//				
-//				try {
-//					Thread.sleep(1500);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				
-//				leftWheel.setSpeed(170);
-//				rightWheel.setSpeed(300);
-//				
-//				
-//				try {
-//					Thread.sleep(4250);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				leftWheel.setSpeed(300);
-//				rightWheel.setSpeed(128);
-//				
-//				try {
-//					Thread.sleep(2000);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
+				leftWheel.setSpeed(300);
+				rightWheel.setSpeed(128);
+				
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				
+				leftWheel.setSpeed(170);
+				rightWheel.setSpeed(300);
+				
+				
+				try {
+					Thread.sleep(4250);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				leftWheel.setSpeed(300);
+				rightWheel.setSpeed(128);
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 
 //				Drive circle ends
 				
