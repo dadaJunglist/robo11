@@ -42,12 +42,12 @@ public class AvoidObstacles extends Thread{
 				//Checking if the obstacle was detected 
 				if(distance > SAVE_DISTANCE) {
 
-					dataExchange.setCommand(1);
+					dataExchange.setObstaclesDetected(false);
 
 
 				}else {
 
-					dataExchange.setCommand(0);
+					dataExchange.setObstaclesDetected(true);
 
 				}
 

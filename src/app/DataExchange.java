@@ -27,4 +27,5 @@ public class DataExchange {
 	public int getCommand() {
 		return command;
 	}
+
 }
