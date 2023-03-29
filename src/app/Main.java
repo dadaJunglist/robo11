@@ -5,7 +5,7 @@ import lejos.hardware.Button;
 public class Main {
 
 	private static DataExchange dataExchange;
-//	private static MoveForward follower;
+	//	private static MoveForward follower;
 	private static FollowLine follower;
 	private static AvoidObstacles avoider;
 	private static Motor motor;
@@ -15,14 +15,14 @@ public class Main {
 
 		dataExchange = new DataExchange();
 		follower = new FollowLine(dataExchange);
-//		follower = new MoveForward(dataExchange);
+		//		follower = new MoveForward(dataExchange);
 		avoider = new AvoidObstacles(dataExchange);
 		motor = new Motor(dataExchange);
-		
+
 		avoider.start();
-		
+
 		follower.start();
-		
+
 		motor.start();
 
 		if(Button.ESCAPE.isDown()) {

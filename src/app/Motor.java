@@ -11,8 +11,8 @@ public class Motor extends Thread{
 	private static EV3LargeRegulatedMotor leftWheel;
 	private static EV3LargeRegulatedMotor rightWheel;
 
-	private static final int SPEED_MAX = 400;
-	private static final int SPEED = SPEED_MAX * (5/7);
+	private static final int SPEED_MAX = 200;
+	private static final int SPEED = SPEED_MAX * (3/5);
 
 
 	public Motor(DataExchange dataExchange) {
@@ -33,79 +33,76 @@ public class Motor extends Thread{
 
 		while(!Button.ESCAPE.isDown()) {
 
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			if(dataExchange.getObstaclesDetected() == true){
+				
+				leftWheel.setSpeed(300);
+				rightWheel.setSpeed(128);
+				
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				
+				leftWheel.setSpeed(170);
+				rightWheel.setSpeed(300);
+				
+				
+				try {
+					Thread.sleep(4250);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				leftWheel.setSpeed(300);
+				rightWheel.setSpeed(128);
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 
-			if(dataExchange.getCommand() == 1) {
+				
+			}else {
+				
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-				leftWheel.setSpeed(SPEED);
-				rightWheel.setSpeed(SPEED_MAX);
-				leftWheel.backward();
-				rightWheel.forward();
+				if(dataExchange.getCommand() == 1) {
 
-			}else if (dataExchange.getCommand() == 2) {
+					leftWheel.setSpeed(SPEED);
+					rightWheel.setSpeed(SPEED_MAX);
+					leftWheel.backward();
+					rightWheel.forward();
 
-				leftWheel.setSpeed(SPEED_MAX);
-				rightWheel.setSpeed(SPEED_MAX);
-				leftWheel.forward();
-				rightWheel.forward();
+				}else if (dataExchange.getCommand() == 2) {
 
-			}else if (dataExchange.getCommand() == 3) {
+					leftWheel.setSpeed(SPEED_MAX);
+					rightWheel.setSpeed(SPEED_MAX);
+					leftWheel.forward();
+					rightWheel.forward();
 
-				leftWheel.setSpeed(SPEED_MAX);
-				rightWheel.setSpeed(SPEED);
-				leftWheel.forward();
-				rightWheel.backward();
+				}else if (dataExchange.getCommand() == 3) {
 
+					leftWheel.setSpeed(SPEED_MAX);
+					rightWheel.setSpeed(SPEED);
+					leftWheel.forward();
+					rightWheel.backward();
+
+				}
+				
+				
 			}
 
 			// Moving the robot forward
 			rightWheel.forward();
 			leftWheel.forward();
-
-
-			if(dataExchange.getObstaclesDetected() == true){
-
-				leftWheel.stop();
-				rightWheel.stop();
-
-
-				leftWheel.setSpeed(700);
-				rightWheel.setSpeed(350);
-
-
-				leftWheel.forward();
-				rightWheel.forward();
-
-				try {
-					Thread.sleep(700);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-
-				leftWheel.setSpeed(350);
-				rightWheel.setSpeed(700);
-
-				leftWheel.forward();
-				rightWheel.forward();
-
-				try {
-					Thread.sleep(1500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				leftWheel.stop();
-				leftWheel.stop();
-				
-			}
 
 		}
 

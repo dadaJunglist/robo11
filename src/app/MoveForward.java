@@ -69,88 +69,88 @@ public class MoveForward extends Thread {
 				
 
 //				Drive Square
-//
-//				// make the right turn.
-//				leftWheel.forward();
-//				rightWheel.backward();
-//
-//				leftWheel.setSpeed(200);
-//				rightWheel.setSpeed(200);
-//
-//				// adjust time to get a 90% turn.
-//				try {
-//					Thread.sleep(700);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//
-//				leftWheel.stop();
-//				rightWheel.stop();
-//
-//				// set right motor back to forward motion.
-//				leftWheel.forward();
-//				rightWheel.forward();
-//				// adjust time
-//				try {
-//					Thread.sleep(2000);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				// make the left turn.
-//
-//				leftWheel.backward();
-//				rightWheel.forward();
-//
-//
-//				// adjust time to get a 90% turn.
-//				try {
-//					Thread.sleep(800);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				
-//				leftWheel.forward();
-//				rightWheel.forward();
-//
-//				try {
-//					Thread.sleep(5500);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				// make the left turn.
-//				leftWheel.backward();
-//				rightWheel.forward();
-//
-//				// adjust time to get a 90% turn.
-//				try {
-//					Thread.sleep(800);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//
-//				leftWheel.forward();
-//				rightWheel.forward();
-//
-//				try {
-//					Thread.sleep(2000);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				// make the right turn.
-//				leftWheel.forward();
-//				rightWheel.backward();
-//
-//
-//				// adjust time to get a 90% turn.
-//				try {
-//					Thread.sleep(700);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}	
+
+				// make the right turn.
+				leftWheel.forward();
+				rightWheel.backward();
+
+				leftWheel.setSpeed(200);
+				rightWheel.setSpeed(200);
+
+				// adjust time to get a 90% turn.
+				try {
+					Thread.sleep(700);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				leftWheel.stop();
+				rightWheel.stop();
+
+				// set right motor back to forward motion.
+				leftWheel.forward();
+				rightWheel.forward();
+				// adjust time
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				// make the left turn.
+
+				leftWheel.backward();
+				rightWheel.forward();
+
+
+				// adjust time to get a 90% turn.
+				try {
+					Thread.sleep(800);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				
+				leftWheel.forward();
+				rightWheel.forward();
+
+				try {
+					Thread.sleep(5500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				// make the left turn.
+				leftWheel.backward();
+				rightWheel.forward();
+
+				// adjust time to get a 90% turn.
+				try {
+					Thread.sleep(800);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				leftWheel.forward();
+				rightWheel.forward();
+
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				// make the right turn.
+				leftWheel.forward();
+				rightWheel.backward();
+
+
+				// adjust time to get a 90% turn.
+				try {
+					Thread.sleep(700);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}	
 
 //				Drive Square ends
 				

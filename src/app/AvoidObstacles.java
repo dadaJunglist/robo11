@@ -10,7 +10,8 @@ import lejos.robotics.SampleProvider;
 
 public class AvoidObstacles extends Thread{
 
-	private static DataExchange dataExchange;
+	private DataExchange dataExchange;
+	
 	private static EV3UltrasonicSensor usSensor;
 	private final int SAVE_DISTANCE;
 	private static SampleProvider usDistance;
