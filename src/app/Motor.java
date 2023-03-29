@@ -11,8 +11,8 @@ public class Motor extends Thread{
 	private static EV3LargeRegulatedMotor leftWheel;
 	private static EV3LargeRegulatedMotor rightWheel;
 
-	private static final int SPEED_MAX = 200;
-	private static final int SPEED = SPEED_MAX * (3/5);
+	private float SPEED_MAX = 200;
+	private float SPEED= (SPEED_MAX*6.075f)/10;
 
 
 	public Motor(DataExchange dataExchange) {
@@ -21,13 +21,13 @@ public class Motor extends Thread{
 
 		leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
 		rightWheel = new EV3LargeRegulatedMotor(MotorPort.D);
-
+		
 	}
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-
+		
 		leftWheel.setSpeed(SPEED_MAX);
 		rightWheel.setSpeed(SPEED_MAX);
 
@@ -35,34 +35,38 @@ public class Motor extends Thread{
 
 			if(dataExchange.getObstaclesDetected() == true){
 				
-				leftWheel.setSpeed(300);
-				rightWheel.setSpeed(128);
 				
-				try {
-					Thread.sleep(1500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				leftWheel.stop();
+				rightWheel.stop();
 				
+//				leftWheel.setSpeed(300);
+//				rightWheel.setSpeed(128);
+//				
+//				try {
+//					Thread.sleep(1500);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//				
 				
-				leftWheel.setSpeed(170);
-				rightWheel.setSpeed(300);
-				
-				
-				try {
-					Thread.sleep(4250);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				leftWheel.setSpeed(300);
-				rightWheel.setSpeed(128);
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+//				leftWheel.setSpeed(170);
+//				rightWheel.setSpeed(300);
+//				
+//				
+//				try {
+//					Thread.sleep(4250);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//				
+//				leftWheel.setSpeed(300);
+//				rightWheel.setSpeed(128);
+//				
+//				try {
+//					Thread.sleep(2000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
 
 				
 			}else {
@@ -74,6 +78,7 @@ public class Motor extends Thread{
 					e.printStackTrace();
 				}
 
+				
 				if(dataExchange.getCommand() == 1) {
 
 					leftWheel.setSpeed(SPEED);

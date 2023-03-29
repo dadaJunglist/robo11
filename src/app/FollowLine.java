@@ -22,6 +22,7 @@ public class FollowLine extends Thread{
 		sensor = new EV3ColorSensor(SensorPort.S2);
 		color = sensor.getRedMode();
 		sample = new float[color.sampleSize()];
+		
 
 
 	}
@@ -50,7 +51,8 @@ public class FollowLine extends Thread{
 
 				dataExchange.setCommand(3);
 
-			}                                                                      
+			}
+
 
 		}
 		// Close the color sensor
