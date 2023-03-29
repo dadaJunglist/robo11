@@ -16,7 +16,7 @@ public class Usonic implements Runnable {
 	private EV3UltrasonicSensor sensor;
 	private SampleProvider distance;
 	private float[] sample;
-
+// reading data from ultrasonic sensor, setting status of boolean in tranfer class object
 	public void run() {
 		sensor = new EV3UltrasonicSensor(SensorPort.S1);
 		distance = sensor.getDistanceMode();
@@ -27,10 +27,10 @@ public class Usonic implements Runnable {
 			distance.fetchSample(sample, 0);
 			float result = sample[0] * 100;
 
-			if (result > 13) {
-				is.setHasNOobstacle(true);
-			} else {
-				is.setHasNOobstacle(false);
+//			System.out.println(result);
+			
+			if (result < 13) {
+				is.setHasObstacle(true);
 			}
 		}
 	}

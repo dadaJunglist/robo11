@@ -20,7 +20,7 @@ public class program {
 		lcheck.start();
 		scheck.start();
 // providing direction of movement
-		is.setGoesLeft(true);
+		is.setGoesLeft(false);
 // motors control thread
 		runner robo = new runner(is.goesLeft, is);
 		Thread go = new Thread(robo);

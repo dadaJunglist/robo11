@@ -27,7 +27,7 @@ public class Light implements Runnable {
 			color.fetchSample(sample, 0);
 			float checkColor = sample[0];
 
-			is.setLight(checkColor);
+				is.setLight(checkColor);
 
 			if (checkColor < 0.081f) {
 				is.setOnLine(true);

@@ -16,11 +16,11 @@ public class runner implements Runnable {
 		this.is = is;
 
 		if (side) {
-			outWheel = new EV3LargeRegulatedMotor(MotorPort.A);
-			inWheel = new EV3LargeRegulatedMotor(MotorPort.D);
-		} else {
 			outWheel = new EV3LargeRegulatedMotor(MotorPort.D);
 			inWheel = new EV3LargeRegulatedMotor(MotorPort.A);
+		} else {
+			outWheel = new EV3LargeRegulatedMotor(MotorPort.A);
+			inWheel = new EV3LargeRegulatedMotor(MotorPort.D);
 		}
 		this.is = is;
 	}
@@ -30,14 +30,17 @@ public class runner implements Runnable {
 	public void run() {
 		while (Button.ESCAPE.isUp()) {
 			
-//			if (is.onLine) {
-//				goOut();
-//			} else if (is.offLine) {
-//				goIn();
-//			} else {
+			if(is.hasObstacle)
+			{
+				System.out.println(is.hasObstacle);
+				avoidObstacle();
+				is.setHasObstacle(false);
+			}
+			else
+			{
 				goForward();
-//			}
-
+			}
+			
 		}
 	}
 // moving robot forward, adjusting speed for small turns
@@ -76,37 +79,35 @@ public class runner implements Runnable {
 		}	
 		outWheel.setSpeed(is.light * multiplier);
 		
-		System.out.println(is.light);
 		outWheel.forward();
 		inWheel.forward();
 	}
-// moving robot closer to envelope, by rotating inner wheel slower
-//	public void goIn() {
-//		outWheel.setSpeed(is.light * multiplier);
-//		inWheel.setSpeed(is.light * multiplier * 5 /7);
-//		outWheel.forward();
-//		inWheel.forward();
-//	}
-// moving robot away from line by rotating outer wheel slower
-//	public void goOut() {
-//		outWheel.setSpeed((1/is.light) * multiplier * 2 /7);
-//		inWheel.setSpeed((1/is.light) * multiplier);
-//		outWheel.forward();
-//		inWheel.forward();
-//	}
+
 // routine to avoid obstacle
 	public void avoidObstacle() {
-//		inWheel.stop();
-//		outWheel.stop();
-//        outWheel.rotate(200, true);
-//        Delay.msDelay(500);
-//        inWheel.rotate(200, true);
-//        outWheel.rotate(200, true);
-//        Delay.msDelay(500);
-//        inWheel.rotate(200, true);
-//        Delay.msDelay(500);
-//        inWheel.rotate(200, true);
-//        outWheel.rotate(200, true);
+		outWheel.forward();
+		inWheel.forward();
+		inWheel.setSpeed(500);
+		outWheel.setSpeed(500);
+		inWheel.stop();
+		outWheel.stop();
+		Delay.msDelay(1000);
+//turn in
+		inWheel.rotate(0, true);
+        outWheel.rotate(200, true);
+        Delay.msDelay(1000);
+//go forward
+        inWheel.rotate(220, true);
+        outWheel.rotate(220, true);
+        Delay.msDelay(1000);
+//turn out
+        inWheel.rotate(200, true);
+        outWheel.rotate(0, true);
+        Delay.msDelay(1000);
+//go outside
+        inWheel.rotate(240, true);
+        outWheel.rotate(255, true);
+        Delay.msDelay(1000);
 	}
 // routine for ending work
 	public void special() {

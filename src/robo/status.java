@@ -8,7 +8,7 @@ public class status {
 
 	public boolean onLine;
 	public float light;
-	public boolean hasNOobstacle;
+	public boolean hasObstacle;
 	public boolean goesLeft;
 
 	public boolean isOnLine() {
@@ -19,12 +19,12 @@ public class status {
 		this.onLine = onLine;
 	}
 
-	public boolean isHasNOobstacle() {
-		return hasNOobstacle;
+	public boolean isHasObstacle() {
+		return hasObstacle;
 	}
 
-	public void setHasNOobstacle(boolean hasNOobstacle) {
-		this.hasNOobstacle = hasNOobstacle;
+	public void setHasObstacle(boolean hasObstacle) {
+		this.hasObstacle = hasObstacle;
 	}
 
 	public boolean GoesLeft() {
