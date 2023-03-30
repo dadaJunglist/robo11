@@ -9,6 +9,7 @@ public class Main {
 	private static FollowLine follower;
 	private static AvoidObstacles avoider;
 	private static Motor motor;
+	private static Celebration celeb;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,12 +19,22 @@ public class Main {
 		//		follower = new MoveForward(dataExchange);
 		avoider = new AvoidObstacles(dataExchange);
 		motor = new Motor(dataExchange);
-
+		celeb = new Celebration();
+		
+		
 		avoider.start();
 
 		follower.start();
 
 		motor.start();
+		
+		if(dataExchange.getCounter() == 2) {
+			
+			avoider.stop();
+			follower.stop();
+			celeb.start();
+			
+		}
 
 		if(Button.ESCAPE.isDown()) {
 

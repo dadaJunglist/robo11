@@ -4,6 +4,7 @@ public class DataExchange {
 
 	private boolean obstaclesDetected = false;
 	private int command = 1;
+	private int counter = 0;
 
 	public DataExchange() {
 
@@ -26,6 +27,14 @@ public class DataExchange {
 
 	public int getCommand() {
 		return command;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 	
