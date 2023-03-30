@@ -1,6 +1,5 @@
 package app;
 
-import lejos.hardware.Button;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
@@ -13,7 +12,7 @@ public class Motor extends Thread {
 	private static EV3LargeRegulatedMotor rightWheel;
 
 	private float SPEED_MAX = 200;
-	private float SPEED = (SPEED_MAX * 6.075f) / 10;
+	private float SPEED = (SPEED_MAX * 6.0f) / 10;
 	private static int counter = 0;
 	private static Celebration celeb;
 	private static boolean exit = false;
@@ -94,8 +93,8 @@ public class Motor extends Thread {
 					leftWheel.backward();
 					rightWheel.backward();
 					Delay.msDelay(1000);
-					leftWheel.stop();
-					rightWheel.stop();
+//					leftWheel.stop();
+//					rightWheel.stop();
 					rightWheel.rotateTo(180);
 					Delay.msDelay(300);
 			        o++;
@@ -114,12 +113,12 @@ public class Motor extends Thread {
 				}
 				
 				
-				leftWheel.setSpeed(170);
+				leftWheel.setSpeed(150);
 				rightWheel.setSpeed(300);
 				
 				
 				try {
-					Thread.sleep(4000);
+					Thread.sleep(4150);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
