@@ -29,13 +29,20 @@ public class Main {
 		motor.start();
 
 
-		if(Button.ESCAPE.isDown()) {
+		while(dataExchange.getCounter() != 2) {
 
-			System.exit(0);
+			
 
 		}
 		
-
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.exit(0);
 
 
 	}

@@ -82,13 +82,13 @@ public class Motor extends Thread {
 				
 				if(dataExchange.getCounter() == 2) {
 					
-					leftWheel.stop(true);
-					rightWheel.stop(true);
+					leftWheel.stop();
+					rightWheel.stop();
 					celeb.start();
 					
-//					Dance
+					// celebration dance
 					int o = 0;
-					while (o < 5) {
+					while (o < 3) {
 					leftWheel.setSpeed(200);
 					rightWheel.setSpeed(200);
 					leftWheel.backward();
