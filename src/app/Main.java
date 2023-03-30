@@ -32,6 +32,7 @@ public class Main {
 			
 			avoider.stop();
 			follower.stop();
+			motor.stop();
 			celeb.start();
 			
 		}
@@ -41,6 +42,7 @@ public class Main {
 			System.exit(0);
 
 		}
+		
 
 
 
