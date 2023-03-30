@@ -11,7 +11,7 @@ public class Celebration extends Thread {
 	public void run() {
 		music.start();
 		disco.start();
-		dance.start();
+//		dance.start();
 	}
 
 }
