@@ -36,23 +36,7 @@ public class FollowLine extends Thread{
 			color.fetchSample(sample, 0);
 			float checkColor = sample[0];
 
-			// Checking if the color sensor is following the black track and sending the commands for a certain situations
-			if (checkColor < 0.2f) {
-
-				dataExchange.setCommand(1);
-
-
-			} else if(checkColor > 0.2f && checkColor < 0.3f) {
-
-				dataExchange.setCommand(2);
-
-
-			}else {
-
-				dataExchange.setCommand(3);
-
-			}
-
+				dataExchange.setCommand(checkColor);
 
 		}
 		// Close the color sensor

@@ -3,7 +3,7 @@ package app;
 public class DataExchange {
 
 	private boolean obstaclesDetected = false;
-	private int command = 1;
+	public float command = 0;
 	private int counter = 0;
 
 	public DataExchange() {
@@ -21,11 +21,11 @@ public class DataExchange {
 
 	}
 
-	public void setCommand(int command) {
+	public void setCommand(float command) {
 		this.command = command;
 	}
 
-	public int getCommand() {
+	public float getCommand() {
 		return command;
 	}
 

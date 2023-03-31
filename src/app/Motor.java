@@ -11,21 +11,18 @@ public class Motor extends Thread {
 	private static EV3LargeRegulatedMotor leftWheel;
 	private static EV3LargeRegulatedMotor rightWheel;
 
-	private float SPEED_MAX = 200;
-	private float SPEED = (SPEED_MAX * 6.0f) / 10;
 	private static int counter = 0;
 	private static Celebration celeb;
 	private static boolean exit = false;
+	private float multiplier;
 
 	public Motor(DataExchange dataExchange) {
 
 		this.dataExchange = dataExchange;
 
-		leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
-		rightWheel = new EV3LargeRegulatedMotor(MotorPort.D);
+		leftWheel = new EV3LargeRegulatedMotor(MotorPort.D);
+		rightWheel = new EV3LargeRegulatedMotor(MotorPort.A);
 
-		leftWheel.setSpeed(SPEED_MAX);
-		rightWheel.setSpeed(SPEED_MAX);
 		celeb = new Celebration();
 
 	}
@@ -37,14 +34,12 @@ public class Motor extends Thread {
 		while (!exit) {
 
 			if(dataExchange.getObstaclesDetected() == false){
-				
-
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
+				multiplier = 1000;
+				if(dataExchange.command  > 0.36) {
+					multiplier = 400 ;
 				}
+<<<<<<< Updated upstream
 
 				if(dataExchange.getCommand() == 1) {
 
@@ -67,10 +62,42 @@ public class Motor extends Thread {
 					leftWheel.forward();
 					rightWheel.backward();
 
+=======
+				else if (dataExchange.command  > 0.33)
+				{
+					multiplier = 500 ;
+>>>>>>> Stashed changes
 				}
+				else if (dataExchange.command  > 0.3)
+				{
+					multiplier = 750 ;
+				}
+				else if (dataExchange.command  > 0.25)
+				{
+					multiplier = 850 ;
+				}
+				else if (dataExchange.command  > 0.20)
+				{
+					multiplier = 900 ;
+				}
+				rightWheel.setSpeed(dataExchange.command * multiplier);
 				
+				multiplier = 1000;
+				if(dataExchange.command  < 0.07) {
+					multiplier = 350;
+				}
+				else if (dataExchange.command  < 0.1) {
+					multiplier = 600;
+				}
+				else if (dataExchange.command  < 0.12) {
+					multiplier = 900;
+				}	
+				leftWheel.setSpeed(dataExchange.command * multiplier);
+				
+			}
 
-			}else {
+
+			else {
 				
 				counter++;
 				dataExchange.setCounter(counter);
@@ -114,7 +141,7 @@ public class Motor extends Thread {
 				
 				
 				try {
-					Thread.sleep(4150);
+					Thread.sleep(4000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
