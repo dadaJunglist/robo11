@@ -20,4 +20,11 @@
 		<nature>org.lejos.ev3.ldt.leJOSEV3Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/app/Motor.class</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/AppData/Local/Temp/Rar$DRa18264.35638/robo11/bin/app/Motor.class</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
