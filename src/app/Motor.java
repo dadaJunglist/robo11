@@ -34,10 +34,7 @@ public class Motor extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 
-
-
 		while (!exit) {
-
 
 			if(dataExchange.getObstaclesDetected() == false){
 				
@@ -49,7 +46,6 @@ public class Motor extends Thread {
 					e.printStackTrace();
 				}
 
-				
 				if(dataExchange.getCommand() == 1) {
 
 					leftWheel.setSpeed(SPEED);
@@ -86,8 +82,8 @@ public class Motor extends Thread {
 					celeb.start();
 					
 					// celebration dance
-					int o = 0;
-					while (o < 3) {
+					int i = 0;
+					while (i < 3) {
 					leftWheel.setSpeed(200);
 					rightWheel.setSpeed(200);
 					leftWheel.backward();
@@ -97,7 +93,7 @@ public class Motor extends Thread {
 //					rightWheel.stop();
 					rightWheel.rotateTo(180);
 					Delay.msDelay(300);
-			        o++;
+			        i++;
 					}
 					
 					exit = true;
