@@ -119,16 +119,16 @@ public class Motor extends Thread {
 				
 				
 				try {
-					Thread.sleep(3500);
+					Thread.sleep(4000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				
-				leftWheel.setSpeed(200);
-				rightWheel.setSpeed(86);
+				leftWheel.setSpeed(300);
+				rightWheel.setSpeed(128);
 				
 				try {
-					Thread.sleep(700);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
