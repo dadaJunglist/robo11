@@ -87,19 +87,15 @@ public class Motor extends Thread {
 					celeb.start();
 					
 					// celebration dance
-					int o = 0;
-					while (o < 3) {
 					leftWheel.setSpeed(200);
 					rightWheel.setSpeed(200);
 					leftWheel.backward();
 					rightWheel.backward();
-					Delay.msDelay(1000);
-//					leftWheel.stop();
-//					rightWheel.stop();
+					Delay.msDelay(1100);
+					leftWheel.stop();
+					rightWheel.stop();
 					rightWheel.rotateTo(180);
 					Delay.msDelay(300);
-			        o++;
-					}
 					
 					exit = true;
 				}
