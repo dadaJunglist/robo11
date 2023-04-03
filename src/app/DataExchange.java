@@ -3,7 +3,7 @@ package app;
 public class DataExchange {
 
 	private boolean obstaclesDetected = false;
-	public float command = 0;
+	private float command = 0;
 	private int counter = 0;
 
 	public DataExchange() {

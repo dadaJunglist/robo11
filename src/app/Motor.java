@@ -39,38 +39,38 @@ public class Motor extends Thread {
 			if(dataExchange.getObstaclesDetected() == false){
 //speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
 				multiplier = 1000;
-				if(dataExchange.command  > 0.36) {
+				if(dataExchange.getCommand()  > 0.36) {
 					multiplier = 400 ;
 				}
-				else if (dataExchange.command  > 0.33)
+				else if (dataExchange.getCommand()  > 0.33)
 				{
 					multiplier = 500 ;
 				}
-				else if (dataExchange.command  > 0.3)
+				else if (dataExchange.getCommand()  > 0.3)
 				{
 					multiplier = 750 ;
 				}
-				else if (dataExchange.command  > 0.25)
+				else if (dataExchange.getCommand()  > 0.25)
 				{
 					multiplier = 850 ;
 				}
-				else if (dataExchange.command  > 0.20)
+				else if (dataExchange.getCommand()  > 0.20)
 				{
 					multiplier = 900 ;
 				}
-				rightWheel.setSpeed(dataExchange.command * multiplier);
+				rightWheel.setSpeed(dataExchange.getCommand() * multiplier);
 				
 				multiplier = 1000;
-				if(dataExchange.command  < 0.07) {
+				if(dataExchange.getCommand()  < 0.07) {
 					multiplier = 350;
 				}
-				else if (dataExchange.command  < 0.1) {
+				else if (dataExchange.getCommand()  < 0.1) {
 					multiplier = 600;
 				}
-				else if (dataExchange.command  < 0.12) {
+				else if (dataExchange.getCommand()  < 0.12) {
 					multiplier = 900;
 				}	
-				leftWheel.setSpeed(dataExchange.command * multiplier);
+				leftWheel.setSpeed(dataExchange.getCommand() * multiplier);
 				
 			}
 
@@ -115,19 +115,19 @@ public class Motor extends Thread {
 				
 				
 				try {
-					Thread.sleep(4000);
+					Thread.sleep(3350);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				
-				leftWheel.setSpeed(300);
-				rightWheel.setSpeed(128);
-				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+//				leftWheel.setSpeed(300);
+//				rightWheel.setSpeed(128);
+//				
+//				try {
+//					Thread.sleep(1000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
 
 				
 			}
