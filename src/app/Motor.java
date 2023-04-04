@@ -35,7 +35,7 @@ public class Motor extends Thread {
 		while (!exit) {
 
 			if (dataExchange.getObstaclesDetected() == false) {
-//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
+				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
 				multiplier = 1200;
 
 				if (dataExchange.getCommand() > 0.09) {
@@ -110,14 +110,14 @@ public class Motor extends Thread {
 					e.printStackTrace();
 				}
 
-//				leftWheel.setSpeed(300);
-//				rightWheel.setSpeed(128);
-//				
-//				try {
-//					Thread.sleep(1000);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
+				//				leftWheel.setSpeed(300);
+				//				rightWheel.setSpeed(128);
+				//				
+				//				try {
+				//					Thread.sleep(1000);
+				//				} catch (InterruptedException e) {
+				//					e.printStackTrace();
+				//				}
 
 			}
 
