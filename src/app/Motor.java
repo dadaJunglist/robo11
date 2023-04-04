@@ -15,13 +15,14 @@ public class Motor extends Thread {
 	private static Celebration celeb;
 	private static boolean exit = false;
 	private float multiplier;
+	private float accelerator;
 
 	public Motor(DataExchange dataExchange) {
 
 		this.dataExchange = dataExchange;
 
-		leftWheel = new EV3LargeRegulatedMotor(MotorPort.D);
-		rightWheel = new EV3LargeRegulatedMotor(MotorPort.A);
+		leftWheel = new EV3LargeRegulatedMotor(MotorPort.A);
+		rightWheel = new EV3LargeRegulatedMotor(MotorPort.D);
 
 		celeb = new Celebration();
 
@@ -31,61 +32,52 @@ public class Motor extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 
-
-
 		while (!exit) {
 
-
-			if(dataExchange.getObstaclesDetected() == false){
+			if (dataExchange.getObstaclesDetected() == false) {
 //speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
-				multiplier = 1000;
-				if(dataExchange.getCommand()  > 0.36) {
-					multiplier = 400 ;
+				multiplier = 1200;
+
+				if (dataExchange.getCommand() > 0.09) {
+					accelerator = 1;
+				} else {
+					accelerator = 3;
 				}
-				else if (dataExchange.getCommand()  > 0.33)
-				{
-					multiplier = 500 ;
+
+				if (dataExchange.getCommand() > 0.33) {
+					multiplier = multiplier / 2;
+				} else if (dataExchange.getCommand() > 0.3) {
+					multiplier = multiplier * 3 / 4;
+				} else if (dataExchange.getCommand() > 0.25) {
+					multiplier = multiplier * 4 / 5;
+				} else if (dataExchange.getCommand() > 0.20) {
+					multiplier = multiplier * 5 / 6;
 				}
-				else if (dataExchange.getCommand()  > 0.3)
-				{
-					multiplier = 750 ;
+				rightWheel.setSpeed(dataExchange.getCommand() * multiplier * accelerator);
+
+				multiplier = 1200;
+				if (dataExchange.getCommand() < 0.07) {
+					multiplier = multiplier / 3;
+				} else if (dataExchange.getCommand() < 0.1) {
+					multiplier = multiplier / 2;
+				} else if (dataExchange.getCommand() < 0.12) {
+					multiplier = multiplier * 4 / 5;
 				}
-				else if (dataExchange.getCommand()  > 0.25)
-				{
-					multiplier = 850 ;
-				}
-				else if (dataExchange.getCommand()  > 0.20)
-				{
-					multiplier = 900 ;
-				}
-				rightWheel.setSpeed(dataExchange.getCommand() * multiplier);
-				
-				multiplier = 1000;
-				if(dataExchange.getCommand()  < 0.07) {
-					multiplier = 350;
-				}
-				else if (dataExchange.getCommand()  < 0.1) {
-					multiplier = 600;
-				}
-				else if (dataExchange.getCommand()  < 0.12) {
-					multiplier = 900;
-				}	
-				leftWheel.setSpeed(dataExchange.getCommand() * multiplier);
-				
+				leftWheel.setSpeed(dataExchange.getCommand() * multiplier * accelerator);
+
 			}
 
-
 			else {
-				
+
 				counter++;
 				dataExchange.setCounter(counter);
-				
-				if(dataExchange.getCounter() == 2) {
-					
+
+				if (dataExchange.getCounter() == 2) {
+
 					leftWheel.stop();
 					rightWheel.stop();
 					celeb.start();
-					
+
 					// celebration dance
 					leftWheel.setSpeed(200);
 					rightWheel.setSpeed(200);
@@ -96,30 +88,28 @@ public class Motor extends Thread {
 					rightWheel.stop();
 					rightWheel.rotateTo(180);
 					Delay.msDelay(300);
-					
+
 					exit = true;
 				}
-				
+
 				leftWheel.setSpeed(300);
 				rightWheel.setSpeed(128);
-				
+
 				try {
 					Thread.sleep(1500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
-				
+
 				leftWheel.setSpeed(150);
 				rightWheel.setSpeed(300);
-				
-				
+
 				try {
 					Thread.sleep(3350);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
+
 //				leftWheel.setSpeed(300);
 //				rightWheel.setSpeed(128);
 //				
@@ -129,7 +119,6 @@ public class Motor extends Thread {
 //					e.printStackTrace();
 //				}
 
-				
 			}
 
 			// Moving the robot forward
@@ -143,6 +132,5 @@ public class Motor extends Thread {
 		rightWheel.stop(true);
 
 	}
-	
 
 }
