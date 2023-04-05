@@ -35,7 +35,8 @@ public class Motor extends Thread {
 		while (!exit) {
 
 			if (dataExchange.getObstaclesDetected() == false) {
-				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
+				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns	
+				//accelerator variable is used to make robot go faster on darker segments of pathway 
 				multiplier = 1100;
 
 				if (dataExchange.getCommand() > 0.09) {
