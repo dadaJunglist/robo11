@@ -36,16 +36,16 @@ public class Motor extends Thread {
 
 			if (dataExchange.getObstaclesDetected() == false) {
 				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns				
-				multiplier = 1200;
+				multiplier = 1100;
 
 				if (dataExchange.getCommand() > 0.09) {
 					accelerator = 1;
 				} else {
-					accelerator = 3;
+					accelerator = 4;
 				}
 
 				if (dataExchange.getCommand() > 0.33) {
-					multiplier = multiplier / 2;
+					multiplier = multiplier * 2 / 5;
 				} else if (dataExchange.getCommand() > 0.3) {
 					multiplier = multiplier * 3 / 4;
 				} else if (dataExchange.getCommand() > 0.25) {
@@ -53,9 +53,9 @@ public class Motor extends Thread {
 				} else if (dataExchange.getCommand() > 0.20) {
 					multiplier = multiplier * 5 / 6;
 				}
-				rightWheel.setSpeed(dataExchange.getCommand() * multiplier * accelerator);
+				rightWheel.setSpeed(50 + dataExchange.getCommand() * multiplier * accelerator);
 
-				multiplier = 1200;
+				multiplier = 1100;
 				if (dataExchange.getCommand() < 0.07) {
 					multiplier = multiplier / 3;
 				} else if (dataExchange.getCommand() < 0.1) {
@@ -63,7 +63,7 @@ public class Motor extends Thread {
 				} else if (dataExchange.getCommand() < 0.12) {
 					multiplier = multiplier * 4 / 5;
 				}
-				leftWheel.setSpeed(dataExchange.getCommand() * multiplier * accelerator);
+				leftWheel.setSpeed(50 + dataExchange.getCommand() * multiplier * accelerator);
 
 			}
 
