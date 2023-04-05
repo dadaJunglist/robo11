@@ -17,7 +17,7 @@ public class Music extends Thread {
 		switch (output) {
 		case 1:
 			System.out.println("Rick Roll");
-			Sound.playSample(new File("celebration_music.wav"), Sound.VOL_MAX);
+			Sound.playSample(new File("celebration_music1.wav"), Sound.VOL_MAX);
 			break;
 
 
