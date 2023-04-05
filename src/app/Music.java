@@ -37,6 +37,16 @@ public class Music extends Thread {
 			System.out.println("Tunak Tunak Tun");
 			Sound.playSample(new File("celebration_music5.wav"), Sound.VOL_MAX);
 			break;
+			
+		case 5:
+			System.out.println("Kala Chashma");
+			Sound.playSample(new File("celebration_music7.wav"), Sound.VOL_MAX);
+			break;
+			
+		case 6:
+			System.out.println("The Humma Song");
+			Sound.playSample(new File("celebration_music8.wav"), Sound.VOL_MAX);
+			break;
 		}
 
 	}
