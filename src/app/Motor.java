@@ -93,6 +93,7 @@ public class Motor extends Thread {
 					exit = true;
 				}
 
+//				Obstacle Avoidance
 				leftWheel.setSpeed(300);
 				rightWheel.setSpeed(128);
 
@@ -110,15 +111,6 @@ public class Motor extends Thread {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-
-				//				leftWheel.setSpeed(300);
-				//				rightWheel.setSpeed(128);
-				//				
-				//				try {
-				//					Thread.sleep(1000);
-				//				} catch (InterruptedException e) {
-				//					e.printStackTrace();
-				//				}
 
 			}
 
