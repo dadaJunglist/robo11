@@ -8,9 +8,6 @@ public class Music extends Thread {
 
 	Random random = new Random();
 
-	// minimum - minimum number of music
-	// maximum - maximum number of music
-
 	int min = 1;
 	int max = 7;
 	int output = (int) (Math.random() * max + min);
