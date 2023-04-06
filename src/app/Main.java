@@ -21,7 +21,6 @@ public class Main {
 		motor = new Motor(dataExchange);
 		
 		
-		
 		avoider.start();
 
 		follower.start();
@@ -31,8 +30,7 @@ public class Main {
 
 		while(dataExchange.getCounter() != 2) {
 
-			
-
+		
 		}
 		
 //		Giving some time for the celebration
