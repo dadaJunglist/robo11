@@ -1,1 +1,6 @@
 /bin/
+
+#Eclipse Files
+.settings/
+.classpath
+.jar

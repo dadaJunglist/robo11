@@ -7,8 +7,11 @@ import lejos.hardware.Sound;
 public class Music extends Thread {
 
 	Random random = new Random();
+
 	int min = 1;
-	int max = 6;
+
+	int max = 7;
+
 	int output = (int) (Math.random() * max + min);
 
 	@Override
@@ -45,6 +48,11 @@ public class Music extends Thread {
 		case 6:
 			System.out.println("The Humma Song");
 			Sound.playSample(new File("celebration_music8.wav"), Sound.VOL_MAX);
+			break;
+
+		case 7:
+			System.out.println("All Star");
+			Sound.playSample(new File("celebration_music9.wav"), Sound.VOL_MAX);
 			break;
 		}
 
