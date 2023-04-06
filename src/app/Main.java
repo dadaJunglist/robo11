@@ -13,6 +13,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+//		Starting the program 
+		
 		dataExchange = new DataExchange();
 		follower = new FollowLine(dataExchange);
 		avoider = new AvoidObstacles(dataExchange);
@@ -33,7 +35,7 @@ public class Main {
 
 		}
 		
-		
+//		Giving some time for the celebration
 		try {
 			Thread.sleep(6000);
 		} catch (InterruptedException e) {
