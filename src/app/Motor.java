@@ -70,8 +70,12 @@ public class Motor extends Thread {
 
 			else {
 
+//				Celebrations After Obstecal is detected 2nd time
 				counter++;
 				dataExchange.setCounter(counter);
+				
+
+				
 
 				if (dataExchange.getCounter() == 2) {
 
@@ -99,6 +103,7 @@ public class Motor extends Thread {
 				leftWheel.setSpeed(300);
 				rightWheel.setSpeed(128);
 
+				
 				try {
 					Thread.sleep(1500);
 				} catch (InterruptedException e) {
