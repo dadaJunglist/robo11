@@ -94,6 +94,8 @@ public class Motor extends Thread {
 				}
 
 //				Obstacle Avoidance
+				
+//				Taking the first turn after detecting the obstacle
 				leftWheel.setSpeed(300);
 				rightWheel.setSpeed(128);
 
@@ -102,7 +104,9 @@ public class Motor extends Thread {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-
+				
+//              Taking another turn to avoid obstecal
+				
 				leftWheel.setSpeed(150);
 				rightWheel.setSpeed(300);
 
