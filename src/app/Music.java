@@ -7,10 +7,10 @@ import lejos.hardware.Sound;
 public class Music extends Thread {
 
 	Random random = new Random();
-	
+
 	// minimum - minimum number of music
 	// maximum - maximum number of music
-	
+
 	int min = 1;
 	int max = 7;
 	int output = (int) (Math.random() * max + min);
@@ -40,17 +40,17 @@ public class Music extends Thread {
 			System.out.println("Tunak Tunak Tun");
 			Sound.playSample(new File("celebration_music5.wav"), Sound.VOL_MAX);
 			break;
-			
+
 		case 5:
 			System.out.println("Kala Chashma");
 			Sound.playSample(new File("celebration_music7.wav"), Sound.VOL_MAX);
 			break;
-			
+
 		case 6:
 			System.out.println("The Humma Song");
 			Sound.playSample(new File("celebration_music8.wav"), Sound.VOL_MAX);
 			break;
-			
+
 		case 7:
 			System.out.println("All Star");
 			Sound.playSample(new File("celebration_music9.wav"), Sound.VOL_MAX);
