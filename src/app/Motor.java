@@ -33,7 +33,7 @@ public class Motor extends Thread {
 		// TODO Auto-generated method stub
 
 		while (!exit) {
-
+			//			Obstacle detection check
 			if (dataExchange.getObstaclesDetected() == false) {
 				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns	
 				//accelerator variable is used to make robot go faster on darker segments of pathway 
@@ -83,7 +83,7 @@ public class Motor extends Thread {
 					rightWheel.stop();
 					celeb.start();
 
-					// celebration dance
+					// Celebration Dance
 					leftWheel.setSpeed(200);
 					rightWheel.setSpeed(200);
 					leftWheel.backward();
@@ -97,9 +97,13 @@ public class Motor extends Thread {
 					exit = true;
 				}
 
+<<<<<<< Updated upstream
 //				Obstacle Avoidance
 				
 //				Taking the first turn after detecting the obstacle
+=======
+				//Obstacle Avoidance
+>>>>>>> Stashed changes
 				leftWheel.setSpeed(300);
 				rightWheel.setSpeed(128);
 
