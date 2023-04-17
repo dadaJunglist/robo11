@@ -16,6 +16,7 @@ public class Music extends Thread {
 
 	@Override
 	public void run() {
+		//Generating a random song for celebration 
 		switch (output) {
 		case 1:
 			System.out.println("Rick Roll");

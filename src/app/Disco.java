@@ -11,7 +11,7 @@ public class Disco extends Thread {
 
 		int i = 0;
 		while (i < 8) {
-			
+
 			Button.LEDPattern(1); // 1 - green
 			Delay.msDelay(300);
 			Button.LEDPattern(0); // 0 - nothing
