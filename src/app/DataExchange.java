@@ -3,7 +3,7 @@ package app;
 public class DataExchange {
 
 	private boolean obstaclesDetected = false;
-	private float command = 0;
+	private float amountOfLight = 0;
 	private int counter = 0;
 
 	public DataExchange() {
@@ -21,12 +21,12 @@ public class DataExchange {
 
 	}
 
-	public void setCommand(float command) {
-		this.command = command;
+	public void setAmountOfLight(float amountOfLight) {
+		this.amountOfLight = amountOfLight;
 	}
 
-	public float getCommand() {
-		return command;
+	public float getAmountOfLight() {
+		return amountOfLight;
 	}
 
 	public int getCounter() {
