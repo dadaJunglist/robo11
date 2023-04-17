@@ -9,7 +9,9 @@ public class Music extends Thread {
 	Random random = new Random();
 
 	int min = 1;
+
 	int max = 7;
+
 	int output = (int) (Math.random() * max + min);
 
 	@Override
