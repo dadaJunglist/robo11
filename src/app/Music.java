@@ -9,11 +9,14 @@ public class Music extends Thread {
 	Random random = new Random();
 
 	int min = 1;
+
 	int max = 7;
+
 	int output = (int) (Math.random() * max + min);
 
 	@Override
 	public void run() {
+		//Generating a random song for celebration 
 		switch (output) {
 		case 1:
 			System.out.println("Rick Roll");
