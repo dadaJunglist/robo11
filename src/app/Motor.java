@@ -39,32 +39,32 @@ public class Motor extends Thread {
 				//accelerator variable is used to make robot go faster on darker segments of pathway 
 				multiplier = 1100;
 
-				if (dataExchange.getCommand() > 0.09) {
+				if (dataExchange.getAmountOfLight() > 0.09) {
 					accelerator = 1;
 				} else {
 					accelerator = 4;
 				}
 
-				if (dataExchange.getCommand() > 0.33) {
+				if (dataExchange.getAmountOfLight() > 0.33) {
 					multiplier = multiplier * 2 / 5;
-				} else if (dataExchange.getCommand() > 0.3) {
+				} else if (dataExchange.getAmountOfLight() > 0.3) {
 					multiplier = multiplier * 3 / 4;
-				} else if (dataExchange.getCommand() > 0.25) {
+				} else if (dataExchange.getAmountOfLight() > 0.25) {
 					multiplier = multiplier * 4 / 5;
-				} else if (dataExchange.getCommand() > 0.20) {
+				} else if (dataExchange.getAmountOfLight() > 0.20) {
 					multiplier = multiplier * 5 / 6;
 				}
-				rightWheel.setSpeed(50 + dataExchange.getCommand() * multiplier * accelerator);
+				rightWheel.setSpeed(50 + dataExchange.getAmountOfLight() * multiplier * accelerator);
 
 				multiplier = 1100;
-				if (dataExchange.getCommand() < 0.07) {
+				if (dataExchange.getAmountOfLight() < 0.07) {
 					multiplier = multiplier / 3;
-				} else if (dataExchange.getCommand() < 0.1) {
+				} else if (dataExchange.getAmountOfLight() < 0.1) {
 					multiplier = multiplier / 2;
-				} else if (dataExchange.getCommand() < 0.12) {
+				} else if (dataExchange.getAmountOfLight() < 0.12) {
 					multiplier = multiplier * 4 / 5;
 				}
-				leftWheel.setSpeed(50 + dataExchange.getCommand() * multiplier * accelerator);
+				leftWheel.setSpeed(50 + dataExchange.getAmountOfLight() * multiplier * accelerator);
 
 			}
 

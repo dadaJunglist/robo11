@@ -1,8 +1,6 @@
 package app;
 
 import lejos.hardware.Button;
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.SampleProvider;
@@ -36,7 +34,7 @@ public class FollowLine extends Thread{
 			color.fetchSample(sample, 0);
 			float checkColor = sample[0];
 
-				dataExchange.setCommand(checkColor);
+				dataExchange.setAmountOfLight(checkColor);
 
 		}
 		// Close the color sensor
