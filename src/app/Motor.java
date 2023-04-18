@@ -37,7 +37,7 @@ public class Motor extends Thread {
 			if (dataExchange.getObstaclesDetected() == false) {
 				//speed of the wheels is set according to amount of light, turning by giving slower speed to wheel in which side robot turns	
 				//accelerator variable is used to make robot go faster on darker segments of pathway 
-				multiplier = 1100;
+				multiplier = 850;
 
 				if (dataExchange.getAmountOfLight() > 0.09) {
 					accelerator = 1;
@@ -48,23 +48,23 @@ public class Motor extends Thread {
 				if (dataExchange.getAmountOfLight() > 0.33) {
 					multiplier = multiplier * 2 / 5;
 				} else if (dataExchange.getAmountOfLight() > 0.3) {
-					multiplier = multiplier * 3 / 4;
+					multiplier = multiplier * 3 / 5;
 				} else if (dataExchange.getAmountOfLight() > 0.25) {
 					multiplier = multiplier * 4 / 5;
 				} else if (dataExchange.getAmountOfLight() > 0.20) {
 					multiplier = multiplier * 5 / 6;
 				}
-				rightWheel.setSpeed(50 + dataExchange.getAmountOfLight() * multiplier * accelerator);
+				rightWheel.setSpeed(40 + dataExchange.getAmountOfLight() * multiplier * accelerator);
 
-				multiplier = 1100;
+				multiplier = 850;
 				if (dataExchange.getAmountOfLight() < 0.07) {
-					multiplier = multiplier / 3;
+					multiplier = multiplier / 6;
 				} else if (dataExchange.getAmountOfLight() < 0.1) {
-					multiplier = multiplier / 2;
+					multiplier = multiplier / 3;
 				} else if (dataExchange.getAmountOfLight() < 0.12) {
-					multiplier = multiplier * 4 / 5;
+					multiplier = multiplier * 3 / 5;
 				}
-				leftWheel.setSpeed(50 + dataExchange.getAmountOfLight() * multiplier * accelerator);
+				leftWheel.setSpeed(40 + dataExchange.getAmountOfLight() * multiplier * accelerator);
 
 			}
 
@@ -100,26 +100,37 @@ public class Motor extends Thread {
 //				Obstacle Avoidance
 				
 //				Taking the first turn after detecting the obstacle
-				leftWheel.setSpeed(300);
-				rightWheel.setSpeed(128);
+				rightWheel.setSpeed(300);
+				leftWheel.setSpeed(128);
 
 				
 				try {
-					Thread.sleep(1500);
+					Thread.sleep(1200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				
 //              Taking another turn to avoid obstacle
 				
-				leftWheel.setSpeed(150);
-				rightWheel.setSpeed(300);
+				rightWheel.setSpeed(150);
+				leftWheel.setSpeed(270);
 
 				try {
-					Thread.sleep(3350);
+					Thread.sleep(3200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				rightWheel.setSpeed(270);
+				leftWheel.setSpeed(150);
+
+				try {
+					Thread.sleep(1700);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+
 
 			}
 
